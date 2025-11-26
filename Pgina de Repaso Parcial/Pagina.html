@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Java POO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0a0a0a;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(244, 176, 4, 0.78) 0%, rgba(244, 176, 4, 0.82) 100%);
+            color: #fbbf24;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 3px solid rgba(244, 176, 4, 0.78);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            color: #000000;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        h2 {
+            color: #fbbf24;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #fbbf24;
+        }
+
+        h3 {
+            color: #fbbf24;
+            margin: 20px 0 10px 0;
+        }
+
+        h4 {
+            color: #fbbf24;
+        }
+
+        .code-block {
+            background: #0d1117;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border: 1px solid #30363d;
+            white-space: pre-wrap;
+        }
+
+        .explanation {
+            background: #2a2a2a;
+            padding: 15px;
+            border-left: 4px solid #fbbf24;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: #e0e0e0;
+        }
+
+        .keyword { color: #ff79c6; }
+        .string { color: #50fa7b; }
+        .comment { color: #6272a4; font-style: italic; }
+        .function { color: #8be9fd; }
+        .number { color: #bd93f9; }
+
+        footer {
+            background: #0a0a0a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #fbbf24;
+        }
+
+        .highlight {
+            background: #fbbf24;
+            color: #0a0a0a;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .topic-item {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #3a3a3a;
+        }
+
+        .side-by-side {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Guía Completa de Programación</h1>
+        <p class="subtitle">Java - POO Completo</p>
+    </header>
+
+    <div class="content">
+        <h2>JAVA - Programación Orientada a Objetos</h2>
+
+        <h3>1. Paradigma de Clase (POO)</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="comment">// Clase: plantilla para crear objetos</span>
+                    <span class="keyword">public class</span> <span class="function">Persona</span> {
+                    <span class="comment">// Atributos (características)</span>
+                    <span class="keyword">String</span> nombre;
+                    <span class="keyword">int</span> edad;
+
+                    <span class="comment">// Métodos (comportamientos)</span>
+                    <span class="keyword">public void</span> saludar() {
+                    System.out.println(<span class="string">"Hola, soy "</span> + nombre);
+                    }
+                    }
+
+                    <span class="comment">// Crear objeto (instancia)</span>
+                    Persona persona1 = <span class="keyword">new</span> Persona();
+                    persona1.nombre = <span class="string">"Juan"</span>;
+                    persona1.edad = <span class="number">25</span>;
+                    persona1.saludar();</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Concepto:</strong><br>
+                    La POO organiza el código en <span class="highlight">clases</span> (plantillas) y <span class="highlight">objetos</span> (instancias).<br><br>
+                    <strong>Ventajas:</strong><br>
+                    • Reutilización de código<br>
+                    • Modularidad<br>
+                    • Modelar entidades reales
+                </div>
+            </div>
+        </div>
+
+        <h3>2. Métodos y Atributos</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">Coche</span> {
+                    <span class="comment">// ATRIBUTOS (estado)</span>
+                    <span class="keyword">String</span> marca;
+                    <span class="keyword">String</span> modelo;
+                    <span class="keyword">int</span> velocidad;
+
+                    <span class="comment">// MÉTODOS (comportamiento)</span>
+                    <span class="keyword">public void</span> acelerar(<span class="keyword">int</span> incremento) {
+                    velocidad += incremento;
+                    System.out.println(<span class="string">"Velocidad: "</span> + velocidad + <span class="string">" km/h"</span>);
+                    }
+
+                    <span class="keyword">public void</span> frenar(<span class="keyword">int</span> decremento) {
+                    velocidad -= decremento;
+                    <span class="keyword">if</span>(velocidad < <span class="number">0</span>) velocidad = <span class="number">0</span>;
+                    }
+                    }</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Atributos:</strong><br>
+                    Variables que almacenan el estado del objeto<br><br>
+                    <strong>Métodos:</strong><br>
+                    Funciones que definen el comportamiento
+                </div>
+            </div>
+        </div>
+
+        <h3>3. Modificadores de Visibilidad</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">CuentaBancaria</span> {
+                    <span class="keyword">public</span> String titular;
+                    <span class="keyword">private</span> <span class="keyword">double</span> saldo;
+                    <span class="keyword">protected</span> String numeroCuenta;
+
+                    <span class="keyword">public void</span> depositar(<span class="keyword">double</span> cantidad) {
+                    saldo += cantidad;
+                    }
+
+                    <span class="keyword">public double</span> getSaldo() {
+                    <span class="keyword">return</span> saldo;
+                    }
+                    }</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Niveles de acceso:</strong><br><br>
+                    <span class="highlight">public</span><br>
+                    Acceso desde cualquier lugar<br><br>
+                    <span class="highlight">private</span><br>
+                    Solo dentro de la clase<br><br>
+                    <span class="highlight">protected</span><br>
+                    Clase, subclases y paquete
+                </div>
+            </div>
+        </div>
+
+        <h3>4. Encapsulamiento (Getters y Setters)</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">Estudiante</span> {
+                    <span class="keyword">private</span> String nombre;
+                    <span class="keyword">private</span> <span class="keyword">int</span> edad;
+                    <span class="keyword">private</span> <span class="keyword">double</span> promedio;
+
+                    <span class="comment">// GETTER: obtener valor</span>
+                    <span class="keyword">public</span> String getNombre() {
+                    <span class="keyword">return</span> nombre;
+                    }
+
+                    <span class="comment">// SETTER: establecer con validación</span>
+                    <span class="keyword">public void</span> setNombre(String nombre) {
+                    <span class="keyword">if</span>(nombre != <span class="keyword">null</span> && !nombre.isEmpty()) {
+                    <span class="keyword">this</span>.nombre = nombre;
+                    }
+                    }
+
+                    <span class="keyword">public void</span> setEdad(<span class="keyword">int</span> edad) {
+                    <span class="keyword">if</span>(edad > <span class="number">0</span> && edad < <span class="number">150</span>) {
+                    <span class="keyword">this</span>.edad = edad;
+                    }
+                    }
+                    }</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Protección de datos:</strong><br><br>
+                    • Atributos privados<br>
+                    • Acceso controlado<br>
+                    • Validación de datos<br>
+                    • Mayor seguridad
+                </div>
+            </div>
+        </div>
+
+        <h3>5. Constructor y Sobrecarga</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">Producto</span> {
+                    <span class="keyword">private</span> String nombre;
+                    <span class="keyword">private</span> <span class="keyword">double</span> precio;
+                    <span class="keyword">private</span> <span class="keyword">int</span> stock;
+
+                    <span class="comment">// Constructor por defecto</span>
+                    <span class="keyword">public</span> Producto() {
+                    <span class="keyword">this</span>.nombre = <span class="string">"Sin nombre"</span>;
+                    <span class="keyword">this</span>.precio = <span class="number">0.0</span>;
+                    <span class="keyword">this</span>.stock = <span class="number">0</span>;
+                    }
+
+                    <span class="comment">// Constructor con parámetros</span>
+                    <span class="keyword">public</span> Producto(String nombre, <span class="keyword">double</span> precio) {
+                    <span class="keyword">this</span>.nombre = nombre;
+                    <span class="keyword">this</span>.precio = precio;
+                    <span class="keyword">this</span>.stock = <span class="number">0</span>;
+                    }
+
+                    <span class="comment">// Constructor completo</span>
+                    <span class="keyword">public</span> Producto(String nombre, <span class="keyword">double</span> precio, <span class="keyword">int</span> stock) {
+                    <span class="keyword">this</span>.nombre = nombre;
+                    <span class="keyword">this</span>.precio = precio;
+                    <span class="keyword">this</span>.stock = stock;
+                    }
+                    }</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Constructores:</strong><br><br>
+                    Inicializan objetos al crearlos<br><br>
+                    <strong>Sobrecarga:</strong><br>
+                    Múltiples constructores con diferentes parámetros
+                </div>
+            </div>
+        </div>
+
+        <h3>6. Herencia y Agregación</h3>
+        <div class="topic-grid">
+            <div class="topic-item">
+                <h4>Herencia</h4>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">Persona</span> {
+                    <span class="keyword">protected</span> String nombre;
+                    <span class="keyword">protected</span> <span class="keyword">int</span> edad;
+
+                    <span class="keyword">public void</span> presentarse() {
+                    System.out.println(nombre);
+                    }
+                    }
+
+                    <span class="keyword">public class</span> <span class="function">Empleado</span> <span class="keyword">extends</span> Persona {
+                    <span class="keyword">private</span> <span class="keyword">double</span> salario;
+
+                    <span class="keyword">@Override</span>
+                    <span class="keyword">public void</span> presentarse() {
+                    System.out.println(nombre + <span class="string">", empleado"</span>);
+                    }
+                    }</div>
+                <div class="explanation">
+                    Relación <span class="highlight">"es un"</span><br>
+                    Empleado ES UNA Persona
+                </div>
+            </div>
+
+            <div class="topic-item">
+                <h4>Agregación</h4>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">Empresa</span> {
+                    <span class="keyword">private</span> String nombre;
+                    <span class="keyword">private</span> List&lt;Empleado&gt; empleados;
+
+                    <span class="keyword">public</span> Empresa(String nombre) {
+                    <span class="keyword">this</span>.nombre = nombre;
+                    empleados = <span class="keyword">new</span> ArrayList&lt;&gt;();
+                    }
+
+                    <span class="keyword">public void</span> agregarEmpleado(Empleado e) {
+                    empleados.add(e);
+                    }
+                    }</div>
+                <div class="explanation">
+                    Relación <span class="highlight">"tiene un"</span><br>
+                    Empresa TIENE Empleados
+                </div>
+            </div>
+        </div>
+
+        <h3>7. Clases y Métodos Abstractos</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="keyword">public abstract class</span> <span class="function">Figura</span> {
+                    <span class="keyword">protected</span> String color;
+
+                    <span class="comment">// Método abstracto</span>
+                    <span class="keyword">public abstract double</span> calcularArea();
+
+                    <span class="comment">// Método concreto</span>
+                    <span class="keyword">public void</span> mostrarColor() {
+                    System.out.println(color);
+                    }
+                    }
+
+                    <span class="keyword">public class</span> <span class="function">Circulo</span> <span class="keyword">extends</span> Figura {
+                    <span class="keyword">private</span> <span class="keyword">double</span> radio;
+
+                    <span class="keyword">@Override</span>
+                    <span class="keyword">public double</span> calcularArea() {
+                    <span class="keyword">return</span> Math.PI * radio * radio;
+                    }
+                    }
+
+                    <span class="keyword">public class</span> <span class="function">Rectangulo</span> <span class="keyword">extends</span> Figura {
+                    <span class="keyword">private</span> <span class="keyword">double</span> base, altura;
+
+                    <span class="keyword">@Override</span>
+                    <span class="keyword">public double</span> calcularArea() {
+                    <span class="keyword">return</span> base * altura;
+                    }
+                    }</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Clase Abstracta:</strong><br><br>
+                    • No se puede instanciar<br>
+                    • Define plantilla<br>
+                    • Métodos sin implementar<br>
+                    • Subclases deben implementar
+                </div>
+            </div>
+        </div>
+
+        <h3>8. Modificador Final</h3>
+        <div class="topic-grid">
+            <div class="topic-item">
+                <h4>Variables Final</h4>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">Constantes</span> {
+                    <span class="keyword">public static final double</span> PI = <span class="number">3.14159</span>;
+                    <span class="keyword">private final</span> String id;
+
+                    <span class="keyword">public</span> Constantes(String id) {
+                    <span class="keyword">this</span>.id = id;
+                    }
+                    }</div>
+                <div class="explanation">
+                    Valores constantes que no cambian
+                </div>
+            </div>
+
+            <div class="topic-item">
+                <h4>Métodos y Clases Final</h4>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">Padre</span> {
+                    <span class="comment">// No se puede sobrescribir</span>
+                    <span class="keyword">public final void</span> metodoFinal() {
+                    System.out.println(<span class="string">"Final"</span>);
+                    }
+                    }
+
+                    <span class="comment">// No se puede heredar</span>
+                    <span class="keyword">public final class</span> <span class="function">Matematicas</span> {
+                    <span class="keyword">public static int</span> sumar(<span class="keyword">int</span> a, <span class="keyword">int</span> b) {
+                    <span class="keyword">return</span> a + b;
+                    }
+                    }</div>
+                <div class="explanation">
+                    Previene modificación y herencia
+                </div>
+            </div>
+        </div>
+
+        <h3>9. Interfaces</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="keyword">public interface</span> <span class="function">Volador</span> {
+                    <span class="keyword">void</span> volar();
+                    <span class="keyword">void</span> aterrizar();
+                    }
+
+                    <span class="keyword">public interface</span> <span class="function">Nadador</span> {
+                    <span class="keyword">void</span> nadar();
+                    }
+
+                    <span class="keyword">public class</span> <span class="function">Pato</span> <span class="keyword">implements</span> Volador, Nadador {
+
+                    <span class="keyword">@Override</span>
+                    <span class="keyword">public void</span> volar() {
+                    System.out.println(<span class="string">"El pato vuela"</span>);
+                    }
+
+                    <span class="keyword">@Override</span>
+                    <span class="keyword">public void</span> aterrizar() {
+                    System.out.println(<span class="string">"El pato aterriza"</span>);
+                    }
+
+                    <span class="keyword">@Override</span>
+                    <span class="keyword">public void</span> nadar() {
+                    System.out.println(<span class="string">"El pato nada"</span>);
+                    }
+                    }</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Contratos:</strong><br><br>
+                    • Define comportamientos<br>
+                    • Herencia múltiple<br>
+                    • Clases implementan<br>
+                    • Polimorfismo
+                </div>
+            </div>
+        </div>
+
+        <h3>10. Manejo de Excepciones</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">Division</span> {
+
+                    <span class="keyword">public static int</span> dividir(<span class="keyword">int</span> a, <span class="keyword">int</span> b)
+                    <span class="keyword">throws</span> ArithmeticException {
+                    <span class="keyword">if</span>(b == <span class="number">0</span>) {
+                    <span class="keyword">throw new</span> ArithmeticException(<span class="string">"División por cero"</span>);
+                    }
+                    <span class="keyword">return</span> a / b;
+                    }
+
+                    <span class="keyword">public static void</span> main(String[] args) {
+                    <span class="keyword">try</span> {
+                    <span class="keyword">int</span> resultado = dividir(<span class="number">10</span>, <span class="number">0</span>);
+                    System.out.println(resultado);
+
+                    } <span class="keyword">catch</span>(ArithmeticException e) {
+                    System.out.println(<span class="string">"Error: "</span> + e.getMessage());
+
+                    } <span class="keyword">finally</span> {
+                    System.out.println(<span class="string">"Fin"</span>);
+                    }
+                    }
+                    }
+
+                    <span class="comment">// Excepción personalizada</span>
+                    <span class="keyword">public class</span> <span class="function">EdadInvalidaException</span> <span class="keyword">extends</span> Exception {
+                    <span class="keyword">public</span> EdadInvalidaException(String msg) {
+                    <span class="keyword">super</span>(msg);
+                    }
+                    }</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Gestión de errores:</strong><br><br>
+                    <span class="highlight">try</span><br>
+                    Código a probar<br><br>
+                    <span class="highlight">catch</span><br>
+                    Captura error<br><br>
+                    <span class="highlight">finally</span><br>
+                    Siempre se ejecuta<br><br>
+                    <span class="highlight">throws</span><br>
+                    Declara excepción
+                </div>
+            </div>
+        </div>
+
+        <h3>11. Hilos (Threads)</h3>
+        <div class="topic-grid">
+            <div class="topic-item">
+                <h4>Extender Thread</h4>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">MiHilo</span> <span class="keyword">extends</span> Thread {
+                    <span class="keyword">private</span> String nombre;
+
+                    <span class="keyword">public</span> MiHilo(String nombre) {
+                    <span class="keyword">this</span>.nombre = nombre;
+                    }
+
+                    <span class="keyword">@Override</span>
+                    <span class="keyword">public void</span> run() {
+                    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i<=<span class="number">5</span>; i++) {
+                    System.out.println(nombre + <span class="string">": "</span> + i);
+                    <span class="keyword">try</span> {
+                    Thread.sleep(<span class="number">1000</span>);
+                    } <span class="keyword">catch</span>(InterruptedException e) {}
+                    }
+                    }
+                    }
+
+                    <span class="comment">// Uso</span>
+                    MiHilo h1 = <span class="keyword">new</span> MiHilo(<span class="string">"Hilo-1"</span>);
+                    h1.start();</div>
+            </div>
+
+            <div class="topic-item">
+                <h4>Implementar Runnable</h4>
+                <div class="code-block"><span class="keyword">public class</span> <span class="function">Tarea</span> <span class="keyword">implements</span> Runnable {
+                    <span class="keyword">private</span> String nombre;
+
+                    <span class="keyword">public</span> Tarea(String nombre) {
+                    <span class="keyword">this</span>.nombre = nombre;
+                    }
+
+                    <span class="keyword">@Override</span>
+                    <span class="keyword">public void</span> run() {
+                    System.out.println(<span class="string">"Ejecutando: "</span> + nombre);
+                    }
+                    }
+
+                    <span class="comment">// Uso</span>
+                    Thread hilo = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Tarea(<span class="string">"Tarea-1"</span>));
+                    hilo.start();</div>
+            </div>
+        </div>
+        <div class="explanation">
+            <strong>Concurrencia:</strong> Los hilos permiten ejecutar múltiples tareas simultáneamente. Útil para operaciones en segundo plano, interfaces responsivas y procesamiento paralelo.
+        </div>
+
+        <h3>12. Listas (Collections)</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="keyword">import</span> java.util.*;
+
+                    <span class="keyword">public class</span> <span class="function">EjemploListas</span> {
+                    <span class="keyword">public static void</span> main(String[] args) {
+
+                    <span class="comment">// ArrayList</span>
+                    List&lt;String&gt; frutas = <span class="keyword">new</span> ArrayList&lt;&gt;();
+
+                    frutas.add(<span class="string">"Manzana"</span>);
+                    frutas.add(<span class="string">"Banana"</span>);
+                    frutas.add(<span class="string">"Naranja"</span>);
+
+                    System.out.println(frutas.get(<span class="number">0</span>));
+
+                    <span class="comment">// Recorrer lista</span>
+                    <span class="keyword">for</span>(String fruta : frutas) {
+                    System.out.println(fruta);
+                    }
+                    }
+                    }</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Colecciones:</strong><br><br>
+                    • Estructuras de datos dinámicas<br>
+                    • ArrayList, LinkedList<br>
+                    • HashMap, HashSet<br>
+                    • Métodos útiles integrados
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content" style="border-top: 3px solid #fbbf24; margin-top: 40px;">
+        <h2>PYTHON - Fundamentos Esenciales</h2>
+
+        <h3>1. Estructuras de Control - Decisiones (if, elif, else)</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="comment"># Estructura if básica</span>
+                    edad = <span class="number">18</span>
+
+                    <span class="keyword">if</span> edad >= <span class="number">18</span>:
+                    print(<span class="string">"Eres mayor de edad"</span>)
+                    <span class="keyword">else</span>:
+                    print(<span class="string">"Eres menor de edad"</span>)
+
+                    <span class="comment"># if-elif-else</span>
+                    nota = <span class="number">85</span>
+
+                    <span class="keyword">if</span> nota >= <span class="number">90</span>:
+                    print(<span class="string">"Excelente"</span>)
+                    <span class="keyword">elif</span> nota >= <span class="number">75</span>:
+                    print(<span class="string">"Bueno"</span>)
+                    <span class="keyword">elif</span> nota >= <span class="number">60</span>:
+                    print(<span class="string">"Aprobado"</span>)
+                    <span class="keyword">else</span>:
+                    print(<span class="string">"Reprobado"</span>)
+
+                    <span class="comment"># Operadores lógicos</span>
+                    edad = <span class="number">25</span>
+                    tiene_licencia = <span class="keyword">True</span>
+
+                    <span class="keyword">if</span> edad >= <span class="number">18</span> <span class="keyword">and</span> tiene_licencia:
+                    print(<span class="string">"Puede conducir"</span>)
+                    <span class="keyword">else</span>:
+                    print(<span class="string">"No puede conducir"</span>)</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Decisiones:</strong><br><br>
+                    <span class="highlight">if</span><br>
+                    Evalúa una condición<br><br>
+                    <span class="highlight">elif</span><br>
+                    Condición alternativa<br><br>
+                    <span class="highlight">else</span><br>
+                    Caso por defecto<br><br>
+                    <strong>Operadores:</strong><br>
+                    and, or, not
+                </div>
+            </div>
+        </div>
+
+        <h3>2. Estructuras de Control - Ciclos (for, while)</h3>
+        <div class="topic-grid">
+            <div class="topic-item">
+                <h4>Ciclo for</h4>
+                <div class="code-block"><span class="comment"># For con range</span>
+                    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):
+                    print(i)  <span class="comment"># 0, 1, 2, 3, 4</span>
+
+                    <span class="comment"># For con lista</span>
+                    frutas = [<span class="string">"manzana"</span>, <span class="string">"banana"</span>, <span class="string">"naranja"</span>]
+                    <span class="keyword">for</span> fruta <span class="keyword">in</span> frutas:
+                    print(fruta)
+
+                    <span class="comment"># For con enumerate</span>
+                    <span class="keyword">for</span> indice, fruta <span class="keyword">in</span> enumerate(frutas):
+                    print(f<span class="string">"{indice}: {fruta}"</span>)
+
+                    <span class="comment"># Range con inicio y fin</span>
+                    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):
+                    print(i)  <span class="comment"># 1, 2, 3, 4, 5</span></div>
+                <div class="explanation">
+                    <strong>Itera sobre secuencias</strong><br>
+                    Listas, tuplas, strings, rangos
+                </div>
+            </div>
+
+            <div class="topic-item">
+                <h4>Ciclo while</h4>
+                <div class="code-block"><span class="comment"># While básico</span>
+                    contador = <span class="number">0</span>
+                    <span class="keyword">while</span> contador < <span class="number">5</span>:
+                    print(contador)
+                    contador += <span class="number">1</span>
+
+                    <span class="comment"># While con break</span>
+                    <span class="keyword">while</span> <span class="keyword">True</span>:
+                    respuesta = input(<span class="string">"Continuar? (s/n): "</span>)
+                    <span class="keyword">if</span> respuesta == <span class="string">"n"</span>:
+                    <span class="keyword">break</span>
+
+                    <span class="comment"># While con continue</span>
+                    num = <span class="number">0</span>
+                    <span class="keyword">while</span> num < <span class="number">10</span>:
+                    num += <span class="number">1</span>
+                    <span class="keyword">if</span> num % <span class="number">2</span> == <span class="number">0</span>:
+                    <span class="keyword">continue</span>  <span class="comment"># Salta pares</span>
+                    print(num)</div>
+                <div class="explanation">
+                    <strong>Se repite mientras condición sea verdadera</strong><br>
+                    break: sale del ciclo<br>
+                    continue: salta iteración
+                </div>
+            </div>
+        </div>
+
+        <h3>3. Listas (Arrays Dinámicos)</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="comment"># Crear listas</span>
+                    numeros = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
+                    frutas = [<span class="string">"manzana"</span>, <span class="string">"banana"</span>, <span class="string">"naranja"</span>]
+                    mixta = [<span class="number">1</span>, <span class="string">"texto"</span>, <span class="keyword">True</span>, <span class="number">3.14</span>]
+
+                    <span class="comment"># Acceder a elementos</span>
+                    print(frutas[<span class="number">0</span>])       <span class="comment"># "manzana"</span>
+                    print(frutas[-<span class="number">1</span>])      <span class="comment"># "naranja" (último)</span>
+
+                    <span class="comment"># Modificar elementos</span>
+                    frutas[<span class="number">1</span>] = <span class="string">"pera"</span>
+
+                    <span class="comment"># Agregar elementos</span>
+                    frutas.append(<span class="string">"uva"</span>)         <span class="comment"># Al final</span>
+                    frutas.insert(<span class="number">0</span>, <span class="string">"fresa"</span>)  <span class="comment"># En posición</span>
+
+                    <span class="comment"># Eliminar elementos</span>
+                    frutas.remove(<span class="string">"pera"</span>)        <span class="comment"># Por valor</span>
+                    del frutas[<span class="number">0</span>]               <span class="comment"># Por índice</span>
+                    ultimo = frutas.pop()        <span class="comment"># Elimina y retorna último</span>
+
+                    <span class="comment"># Operaciones útiles</span>
+                    print(len(frutas))           <span class="comment"># Longitud</span>
+                    print(<span class="string">"manzana"</span> <span class="keyword">in</span> frutas) <span class="comment"># True/False</span>
+
+                    <span class="comment"># Slicing (rebanado)</span>
+                    numeros = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]
+                    print(numeros[<span class="number">1</span>:<span class="number">4</span>])        <span class="comment"># [1, 2, 3]</span>
+                    print(numeros[:<span class="number">3</span>])          <span class="comment"># [0, 1, 2]</span>
+                    print(numeros[<span class="number">3</span>:])          <span class="comment"># [3, 4, 5]</span>
+
+                    <span class="comment"># Métodos útiles</span>
+                    numeros.sort()               <span class="comment"># Ordenar</span>
+                    numeros.reverse()            <span class="comment"># Invertir</span>
+                    total = sum(numeros)         <span class="comment"># Suma</span></div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Listas:</strong><br><br>
+                    • Colección ordenada<br>
+                    • Modificable (mutable)<br>
+                    • Permite duplicados<br>
+                    • Acceso por índice<br>
+                    • Tamaño dinámico<br><br>
+                    <strong>Características:</strong><br>
+                    • Índices desde 0<br>
+                    • Índices negativos desde final<br>
+                    • Slicing flexible
+                </div>
+            </div>
+        </div>
+
+        <h3>4. Tuplas (Secuencias Inmutables)</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="comment"># Crear tuplas</span>
+                    coordenadas = (<span class="number">10</span>, <span class="number">20</span>)
+                    persona = (<span class="string">"Juan"</span>, <span class="number">25</span>, <span class="string">"México"</span>)
+                    un_elemento = (<span class="number">5</span>,)  <span class="comment"># Coma necesaria</span>
+
+                    <span class="comment"># Acceder a elementos</span>
+                    print(coordenadas[<span class="number">0</span>])     <span class="comment"># 10</span>
+                    print(persona[-<span class="number">1</span>])        <span class="comment"># "México"</span>
+
+                    <span class="comment"># Desempaquetado</span>
+                    x, y = coordenadas
+                    nombre, edad, pais = persona
+                    print(x, y)              <span class="comment"># 10 20</span>
+
+                    <span class="comment"># Operaciones</span>
+                    print(len(persona))      <span class="comment"># 3</span>
+                    print(<span class="number">25</span> <span class="keyword">in</span> persona)   <span class="comment"># True</span>
+
+                    <span class="comment"># Concatenación</span>
+                    tupla1 = (<span class="number">1</span>, <span class="number">2</span>)
+                    tupla2 = (<span class="number">3</span>, <span class="number">4</span>)
+                    resultado = tupla1 + tupla2  <span class="comment"># (1, 2, 3, 4)</span>
+
+                    <span class="comment"># Repetición</span>
+                    repetida = (<span class="string">"a"</span>,) * <span class="number">3</span>     <span class="comment"># ("a", "a", "a")</span>
+
+                    <span class="comment"># Slicing</span>
+                    numeros = (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)
+                    print(numeros[<span class="number">1</span>:<span class="number">3</span>])      <span class="comment"># (1, 2)</span>
+
+                    <span class="comment"># Métodos</span>
+                    lista = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>)
+                    print(lista.count(<span class="number">2</span>))     <span class="comment"># 3 (veces que aparece)</span>
+                    print(lista.index(<span class="number">3</span>))     <span class="comment"># 2 (posición)</span></div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Tuplas:</strong><br><br>
+                    • Colección ordenada<br>
+                    • <span class="highlight">Inmutable</span> (no se modifica)<br>
+                    • Permite duplicados<br>
+                    • Más rápidas que listas<br>
+                    • Usan menos memoria<br><br>
+                    <strong>Cuándo usar:</strong><br>
+                    • Datos que no cambian<br>
+                    • Coordenadas (x, y)<br>
+                    • Valores de retorno<br>
+                    • Claves de diccionario
+                </div>
+            </div>
+        </div>
+
+        <h3>5. Diccionarios (Pares Clave-Valor)</h3>
+        <div class="side-by-side">
+            <div>
+                <div class="code-block"><span class="comment"># Crear diccionarios</span>
+                    persona = {
+                    <span class="string">"nombre"</span>: <span class="string">"Juan"</span>,
+                    <span class="string">"edad"</span>: <span class="number">25</span>,
+                    <span class="string">"ciudad"</span>: <span class="string">"México"</span>
+                    }
+
+                    estudiante = dict(nombre=<span class="string">"Ana"</span>, edad=<span class="number">20</span>)
+
+                    <span class="comment"># Acceder a valores</span>
+                    print(persona[<span class="string">"nombre"</span>])        <span class="comment"># "Juan"</span>
+                    print(persona.get(<span class="string">"edad"</span>))     <span class="comment"># 25</span>
+                    print(persona.get(<span class="string">"tel"</span>, <span class="string">"N/A"</span>))  <span class="comment"># Valor por defecto</span>
+
+                    <span class="comment"># Modificar valores</span>
+                    persona[<span class="string">"edad"</span>] = <span class="number">26</span>
+
+                    <span class="comment"># Agregar elementos</span>
+                    persona[<span class="string">"email"</span>] = <span class="string">"juan@email.com"</span>
+
+                    <span class="comment"># Eliminar elementos</span>
+                    del persona[<span class="string">"ciudad"</span>]
+                    email = persona.pop(<span class="string">"email"</span>)
+
+                    <span class="comment"># Verificar existencia</span>
+                    <span class="keyword">if</span> <span class="string">"nombre"</span> <span class="keyword">in</span> persona:
+                    print(<span class="string">"Nombre existe"</span>)
+
+                    <span class="comment"># Obtener claves, valores, items</span>
+                    claves = persona.keys()
+                    valores = persona.values()
+                    items = persona.items()
+
+                    <span class="comment"># Iterar sobre diccionario</span>
+                    <span class="keyword">for</span> clave <span class="keyword">in</span> persona:
+                    print(clave, persona[clave])
+
+                    <span class="keyword">for</span> clave, valor <span class="keyword">in</span> persona.items():
+                    print(f<span class="string">"{clave}: {valor}"</span>)
+
+                    <span class="comment"># Actualizar múltiples valores</span>
+                    persona.update({<span class="string">"edad"</span>: <span class="number">27</span>, <span class="string">"pais"</span>: <span class="string">"México"</span>})
+
+                    <span class="comment"># Diccionario vacío</span>
+                    vacio = {}
+                    datos = dict()
+
+                    <span class="comment"># Diccionarios anidados</span>
+                    escuela = {
+                    <span class="string">"estudiante1"</span>: {<span class="string">"nombre"</span>: <span class="string">"Ana"</span>, <span class="string">"edad"</span>: <span class="number">20</span>},
+                    <span class="string">"estudiante2"</span>: {<span class="string">"nombre"</span>: <span class="string">"Luis"</span>, <span class="string">"edad"</span>: <span class="number">22</span>}
+                    }</div>
+            </div>
+            <div>
+                <div class="explanation">
+                    <strong>Diccionarios:</strong><br><br>
+                    • Pares clave-valor<br>
+                    • Modificable (mutable)<br>
+                    • Sin orden específico<br>
+                    • Claves únicas<br>
+                    • Acceso rápido O(1)<br><br>
+                    <strong>Características:</strong><br>
+                    • Claves deben ser inmutables<br>
+                    • Valores pueden ser cualquier tipo<br>
+                    • Muy eficientes<br><br>
+                    <strong>Cuándo usar:</strong><br>
+                    • Búsquedas rápidas<br>
+                    • Datos estructurados<br>
+                    • Configuraciones<br>
+                    • Bases de datos en memoria
+                </div>
+            </div>
+        </div>
+
+        <h3>6. Comparación de Estructuras</h3>
+        <div class="explanation" style="margin: 20px 0;">
+            <strong>¿Cuándo usar cada una?</strong><br><br>
+            <strong>Listas:</strong> Cuando necesitas una colección ordenada y modificable. Ideal para datos que cambian frecuentemente.<br><br>
+            <strong>Tuplas:</strong> Cuando tus datos no deben cambiar. Más eficientes en memoria y rendimiento. Perfectas para datos constantes.<br><br>
+            <strong>Diccionarios:</strong> Cuando necesitas asociar claves con valores. Excelente para búsquedas rápidas y datos estructurados.<br><br>
+            <div class="code-block" style="margin-top: 15px;"><span class="comment"># Ejemplo comparativo</span>
+                lista = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]           <span class="comment"># Modificable, ordenada</span>
+                tupla = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)          <span class="comment"># Inmutable, ordenada</span>
+                diccionario = {<span class="string">"a"</span>: <span class="number">1</span>, <span class="string">"b"</span>: <span class="number">2</span>}  <span class="comment"># Clave-valor, no ordenado</span></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Guía Java POO - Material de Estudio</p>
+    </footer>
+</div>
+</body>
+</html>
